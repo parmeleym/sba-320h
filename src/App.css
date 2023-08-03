@@ -1,0 +1,56 @@
+@import url("https://fonts.googleapis.com/css2?family=Russo+One&display=swap");
+
+.header-container{
+  font-size: larger;
+}
+
+#game-window-container{
+  /* height: 90dvh; */
+  width: 95%;
+  min-height: 83vh;
+  height: 90vh;
+  margin-left: 2.5%;
+  margin-top: 2.5%;
+  margin-bottom: 2.5%;
+  overflow: hidden;
+}
+
+#gameWindowContainer{
+  width: 50%;
+  height:66vh;
+  border: 0.5rem outset pink;
+  outline: 0.5rem solid khaki;
+  box-shadow: 0 0 0 2rem skyblue;
+  border-radius: 12px;
+  font: bold 1rem sans-serif;
+  margin: auto;
+  padding: 1rem;
+  outline-offset: 0.5rem;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
+
+Button{
+  width: 6rem;
+  height: 2.5rem;
+  /* font-family: 'Russo One', sans-serif; */
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+
+body{
+  overflow: hidden;
+}
+
+/*
+SHUFFLING ALGORITHM
+
+let unshuffled = ['hello', 'a', 't', 'q', 1, 2, 3, {cats: true}]
+
+let shuffled = unshuffled
+    .map(value => ({ value, sort: Math.random() }))
+    .sort((a, b) => a.sort - b.sort)
+    .map(({ value }) => value)
+   
+console.log(shuffled)
+*/
