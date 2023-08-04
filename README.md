@@ -6,8 +6,8 @@ This project was made for PerScholas React Training Course to demonstrate unders
 
 **_Note:_** This application is optimized for modern web browsers running in fullscreen mode on a laptop/desktop at this time. Further optimization for dynamic rendering may come at  a later time. 
 
-To demo the application, please click on the following link(redirect to Netlify):
---Link Here--
+To demo the application, please click on the following link(redirect to Netlify):<br />
+[Quick Draw Trivia Demo](https://soft-meringue-15a8cd.netlify.app/)
 
 ## Technologies Used
 
