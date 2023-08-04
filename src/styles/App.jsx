@@ -1,14 +1,14 @@
 import './App.css'
 import "bootstrap/dist/css/bootstrap.min.css";
-import Header from './components/general-ui/Header'
-import ButtonAmount from './components/menu-buttons/ButtonAmount'
-import ButtonCategory from './components/menu-buttons/ButtonCategory'
-import ButtonDifficulty from './components/menu-buttons/ButtonDifficulty'
-import ButtonStart from './components/menu-buttons/ButtonStart'
+import Header from '../components/general-ui/Header'
+import ButtonAmount from '../components/menu-buttons/ButtonAmount'
+import ButtonCategory from '../components/menu-buttons/ButtonCategory'
+import ButtonDifficulty from '../components/menu-buttons/ButtonDifficulty'
+import ButtonStart from '../components/menu-buttons/ButtonStart'
 import { Button } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { updateGameState } from './redux/slices/settingsSlice';
-import ButtonsQA from './components/game-buttons/ButtonsQA';
+import { updateGameState } from '../redux/slices/settingsSlice';
+import ButtonsQA from '../components/game-buttons/ButtonsQA';
 
 
 
