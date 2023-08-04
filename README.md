@@ -74,7 +74,10 @@ The following are things I am going to work on for the next update:
 - Add Routers to properly navigate single page application.
 - Fix Randomize function to prevent shuffling of answers on answer selection. 
 - Change UI to make site better looking.
-- Change UI to make site optimaized for dynamic viewing. 
+- Change UI to make site optimaized for dynamic viewing.
+- Reimplement timer component.
+- Change scoring component to reflect different values as timer component is reduced  (higer value === higher score).
+- Add additional pages to Navbar including how-to-play, about, etc.
 
 ## Plugin Information:
 
