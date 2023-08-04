@@ -66,7 +66,17 @@ Game Cluster Buttons sometimes don't all change colors, leaving one as the defau
 *Description:*  Currently unknown as to why this is happening, and it cannot be replicated everytime. Most of the time it renders all buttons in the cluster the correct color, few instances during testing have shown otherwise.<br />
 *Solution:* Direction unknown at this moment. Further investigation into the issue or a possible rework of the component will render this issue irrelevant. 
 
-**Plugin Information:**
+## Todo List
+
+The following are things I am going to work on for the next update:
+
+- Add SASS to change bootstrap themes/colors
+- Add Routers to properly navigate single page application.
+- Fix Randomize function to prevent shuffling of answers on answer selection. 
+- Change UI to make site better looking.
+- Change UI to make site optimaized for dynamic viewing. 
+
+## Plugin Information:
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
