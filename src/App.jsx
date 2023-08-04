@@ -1,18 +1,34 @@
 import './App.css'
 import "bootstrap/dist/css/bootstrap.min.css";
-import ButtonsQA from './components/game-buttons/ButtonsQA'
 import Header from './components/general-ui/Header'
 import ButtonAmount from './components/menu-buttons/ButtonAmount'
 import ButtonCategory from './components/menu-buttons/ButtonCategory'
 import ButtonDifficulty from './components/menu-buttons/ButtonDifficulty'
 import ButtonStart from './components/menu-buttons/ButtonStart'
+import { Button } from 'react-bootstrap';
+import { useDispatch, useSelector } from 'react-redux';
+import { updateGameState } from './redux/slices/settingsSlice';
+import ButtonsQA from './components/game-buttons/ButtonsQA';
 
 
-function App() {
+
+const App = () => {
+
+ const gameState = useSelector(state => state.settings.gameState)
+ const score = useSelector(state => state.settings.score)
+ const amtQuestions = useSelector(state => state.settings.amount)
+ const dispatch = useDispatch();
 
   return (
     <>
-      <Header  />
+    <Header />
+    {gameState === 'main' && (
+      <div id='gameWindowContainer'>
+        <h2>Quick Draw Trivia</h2>
+        <Button onClick={() => dispatch(updateGameState('settings'))}>Play Now</Button>
+      </div>
+    )}
+    {gameState === 'settings' && (
       <div id='gameWindowContainer'>
         <div id='amountButtonContainer'>
           <ButtonAmount value={5} />
@@ -34,11 +50,25 @@ function App() {
         </div>
         <div>
           <ButtonStart />
-          <ButtonsQA />
         </div>
       </div>
-    </>
-  )
-}
+    )}
+    {gameState === 'game' && (
+      <div id='gameWindowContainer'>
+        <ButtonsQA />
+      </div>
+    )}
+    {gameState === 'scoreScreen' && (
+      <div id='gameWindowContainer'>
+        <h2>You Got {score}/{amtQuestions} Correct!</h2>
+        <div>
+          <Button onClick={() => dispatch(updateGameState('main'))}>Return to Main Menu</Button>
+          <Button onClick={() => dispatch(updateGameState('settings'))}>Return to Settings</Button>
+        </div>
+      </div>
+    )}
+  </>
+  );
+};
 
-export default App
+export default App;

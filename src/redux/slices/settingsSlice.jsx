@@ -4,8 +4,9 @@ const initialState = {
         amount: 0,
         category: '',
         difficulty: '',
-        gameState: 'menu',
+        gameState: 'main',
         index: 0,
+        score: 0,
 }
 
 export const settingsSlice = createSlice({
@@ -23,10 +24,16 @@ export const settingsSlice = createSlice({
         },
         incrementIndex: (state) => {
             state.index++
-        }
+        },
+        updateGameState: (state, action) => {
+            state.gameState = action.payload
+        },
+        updateScore: (state, action) => {
+            state.score += action.payload
+        },
     },
 })
 
-export const {updateCategory, updateDifficulty, updateAmount} = settingsSlice.actions
+export const {updateCategory, updateDifficulty, updateAmount, incrementIndex, updateGameState, updateScore} = settingsSlice.actions
 
 export const settingsReducer = settingsSlice.reducer

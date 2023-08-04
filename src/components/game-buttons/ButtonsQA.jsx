@@ -1,12 +1,20 @@
+import { useState } from "react"
 import { Button } from "react-bootstrap"
-import { useSelector } from "react-redux"
+import { useSelector, useDispatch } from "react-redux"
+import { incrementIndex, updateScore } from "../../redux/slices/settingsSlice"
+import { updateGameState } from "../../redux/slices/settingsSlice";
 
 function ButtonsQA() {
     const questions = useSelector(state => state.questions.questions)
     const questionIndexState = useSelector(state => state.settings.index)
+    const questionsMax = useSelector(state => state.settings.amount)
     const questionIndex = questionIndexState
     const questionState = questions
-    const answerArray = [];
+    const questionsMaxVal = questionsMax
+    let answers = [];
+    let answerArray = [];
+    const [style, setStyle] = useState('');
+    const dispatch = useDispatch();
 
     function decodeHtml(html) {
         var txt = document.createElement("textarea");
@@ -15,6 +23,8 @@ function ButtonsQA() {
     }
 
     function randomizeAnswers() {
+        answerArray  = []
+        console.log(questionState[questionIndex]);
         answerArray.push(questionState[questionIndex].correct_answer)
         questionState[questionIndex].incorrect_answers.map(answers => {
             answerArray.push(answers)
@@ -23,39 +33,49 @@ function ButtonsQA() {
             .map(value => ({ value, sort: Math.random() }))
             .sort((a, b) => a.sort - b.sort)
             .map(({ value }) => value)
-        console.log(answerArrayShuffled);
         return answerArrayShuffled;
     }
 
-    // randomizeAnswers();
+    function checkCorrectAnswer(ans){
+        if(ans == questionState[questionIndex].correct_answer){
+            setStyle('green')
+            dispatch(updateScore(1))
 
+        }else{
+            setStyle('red')
+        }
+        setTimeout(function(){
+           setStyle('') 
+        }, 1500)
+        answerArray = [];
+        setTimeout(function(){
+            dispatch(incrementIndex())
+         }, 1500)
+    }
 
-    // console.log(questionState[0].question);
-    // console.log(questionState[0].correct_answer);
-    // console.log(questionIndex);
+    if(questionIndex !== questionsMaxVal){
+        answers = randomizeAnswers();
+    }
 
-    return(
-        // <div>
-        //     {questionState.map(question => 
-        //         <div key={question.id}>
-        //             <h2>{decodeHtml(JSON.stringify(question.question))}</h2>
-        //             {question.incorrect_answers.map(answers =>
-        //                 <Button key={answers.id}>{answers}</Button>
-        //             )}
-        //             <Button>{question.correct_answer}</Button>
-        //             <br></br>
-        //         </div>
-        //     )}
-        // </div>
-        <div>
-            {/* <h2>{decodeHtml(JSON.stringify(questionState[questionIndex].question))}</h2>
+    if(questionIndex < questionsMaxVal){
+        return(
             <div>
-                {randomizeAnswers.map(function (answer, i){
-                    return <Button key={i}>{answer}</Button>
-                })}
-            </div> */}
-        </div>
-    )
+                <h2>{decodeHtml(questionState[questionIndex].question)}</h2>
+                <div>
+                    {answers.map(ans =>
+                        <Button 
+                            className="GameButton" 
+                            key={ans.id}
+                            style={{backgroundColor: style}}
+                            onClick={()  => checkCorrectAnswer(ans)}
+                        >{ans}</Button>
+                    )}
+                </div>
+            </div>
+        )
+    }else{
+        dispatch(updateGameState('scoreScreen'));
+    }
 }
 
 export default ButtonsQA
