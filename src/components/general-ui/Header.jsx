@@ -9,9 +9,6 @@ function Header() {
         <Container>
           <Navbar.Brand href="#home">Quick Draw Trivia</Navbar.Brand>
           <Nav className="ml-auto">
-            <Nav.Link href="#home">Play</Nav.Link>
-            <Nav.Link href="guide">Guide</Nav.Link>
-            <Nav.Link href="#about">About</Nav.Link>
           </Nav>
         </Container>
       </Navbar>

@@ -1,7 +1,6 @@
 import { Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchQuestions } from "../../redux/slices/fetchQuestionsSlice";
-import ButtonsQA from "../game-buttons/ButtonsQA";
 import { updateGameState } from "../../redux/slices/settingsSlice";
 
 function ButtonStart() {
@@ -19,6 +18,7 @@ function ButtonStart() {
     return(
         <Button 
             onClick={() => handleClick()}
+            id="start-button"
         >Start</Button>
     )
 }

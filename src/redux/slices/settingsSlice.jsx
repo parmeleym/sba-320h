@@ -25,15 +25,21 @@ export const settingsSlice = createSlice({
         incrementIndex: (state) => {
             state.index++
         },
+        setIndexDefault: (state) => {
+            state.index = 0
+        },
         updateGameState: (state, action) => {
             state.gameState = action.payload
         },
         updateScore: (state, action) => {
             state.score += action.payload
         },
+        setScoreDefault: (state) => {
+            state.score = 0
+        }
     },
 })
 
-export const {updateCategory, updateDifficulty, updateAmount, incrementIndex, updateGameState, updateScore} = settingsSlice.actions
+export const {updateCategory, updateDifficulty, updateAmount, incrementIndex, updateGameState, updateScore, setIndexDefault, setScoreDefault} = settingsSlice.actions
 
 export const settingsReducer = settingsSlice.reducer

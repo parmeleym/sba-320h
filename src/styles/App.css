@@ -1,7 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Russo+One&display=swap");
-
 .header-container{
   font-size: larger;
+}
+
+h2{
+  font-family: 'Russo One';
 }
 
 #game-window-container{
@@ -30,27 +32,147 @@
   margin-bottom: 5rem;
 }
 
+.question-header{
+  margin-left: .5rem;
+  margin-right: .5rem;
+  text-align: center;
+  overflow-wrap: break-word;
+}
+
+.answer-button{
+  height: 10rem;
+  width: 20rem;
+  margin: .5rem;
+}
+
+.answer-container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.play-button{
+  height: 10rem;
+  width: 20rem;
+  font-family: 'Russo One';
+  font-size: 2.5rem !important;
+}
+
+.play-button-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40%;
+}
+
+.title-header{
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 6rem;
+}
+
+#amount-header-container{
+  width: 15rem;
+  text-align: center;
+  font-family: 'Russo One';
+}
+
+#amountButtonContainer{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  width: 15rem;
+  justify-content: center;
+}
+
+#category-container{
+  display: flex;
+  flex-wrap: wrap;
+  width: 15rem;
+  gap: 1rem;
+  justify-content: center;
+}
+
+#category-header{
+  width: 15rem;
+  text-align: center;
+  font-family: 'Russo One';
+}
+
+#difficulty-container{
+  display: flex;
+  flex-wrap: wrap;
+  width: 15rem;
+  gap: 1rem;
+  justify-content: center;
+}
+
+#difficulty-header{
+  width: 15rem;
+  text-align: center;
+  font-family: 'Russo One';
+}
+
+#start-container{
+  display: flex;
+  flex-wrap: wrap;
+  width: 15rem;
+  height: 15rem;
+  gap: 1rem;
+  justify-content: center;
+}
+
+#settings-main-container{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+#start-button{
+  margin-top: .5rem;
+  width: 15rem;
+  height: 10rem;
+}
+
+#settings-header{
+  text-align: center;
+}
+
+#score-header{
+  text-align: center;
+  font-size: 5rem;
+}
+
+#score-button-container{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.main-menu-button{
+  width: 20rem;
+  height: 15rem;
+}
+
 Button{
   width: 6rem;
   height: 2.5rem;
-  /* font-family: 'Russo One', sans-serif; */
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  font-family: 'Russo One' !important;
+  background-color: var(--primary-color);
+  border: none !important;
+  transition: 0.3s;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px !important;
 }
 
+Button:hover{
+  background-color: rgb(156, 224, 251);
+  border-color: rgb(156, 224, 251);
+}
 
 body{
   overflow: hidden;
 }
-
-/*
-SHUFFLING ALGORITHM
-
-let unshuffled = ['hello', 'a', 't', 'q', 1, 2, 3, {cats: true}]
-
-let shuffled = unshuffled
-    .map(value => ({ value, sort: Math.random() }))
-    .sort((a, b) => a.sort - b.sort)
-    .map(({ value }) => value)
-   
-console.log(shuffled)
-*/
